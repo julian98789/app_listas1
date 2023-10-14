@@ -135,6 +135,11 @@ public class frm_fincas extends javax.swing.JFrame {
         });
 
         jButton1.setText("Consultar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -311,6 +316,29 @@ public class frm_fincas extends javax.swing.JFrame {
        fnt_guardar(txt_nombre.getText(), txt_codigo.getText(),txt_direccion.getText(),txt_contacto.getText()
                ,txt_propietario.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
+    private void fnt_consultar(String codigo){
+        int_posicion =0;
+        bln_sw = false;
+        for (int i = 0; i < obj_fincas.size(); i++) {
+            if(codigo.equals(obj_fincas.get(i).getCodigo())){
+                int_posicion = i;
+                bln_sw = true;
+                break;
+            }
+            
+        }
+        if(bln_sw = false){
+            JOptionPane.showMessageDialog(null, "no se encontraron registros", "Consultar", JOptionPane.ERROR_MESSAGE);
+        }else{
+            txt_nombre.setText(obj_fincas.get(int_posicion).getNombre());
+            txt_contacto.setText(obj_fincas.get(int_posicion).getContacto());
+            txt_direccion.setText(obj_fincas.get(int_posicion).getDireccion());
+            txt_propietario.setText(obj_fincas.get(int_posicion).getPropietario());
+        }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        fnt_consultar(txt_codigo.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
