@@ -290,7 +290,7 @@ public class frm_fincas extends javax.swing.JFrame {
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       
-        
+        fnt_limpiar();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -301,10 +301,15 @@ public class frm_fincas extends javax.swing.JFrame {
         if(n.equals("") || c.equals("") || d.equals("") || co.equals("") ||
            p.equals("")){
             JOptionPane.showMessageDialog(null, "debe ingresar todos los datos ", "Registrar", JOptionPane.ERROR_MESSAGE);
+        }else{
+            obj_fincas.add(new cls_fincas(n,c,d,co,p));
+            
+            JOptionPane.showMessageDialog(null, "finca registrada con exito", "Registrar", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+       fnt_guardar(txt_nombre.getText(), txt_codigo.getText(),txt_direccion.getText(),txt_contacto.getText()
+               ,txt_propietario.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
